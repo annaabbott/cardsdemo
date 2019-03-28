@@ -1,5 +1,5 @@
-import { senate } from './senators.json'
-import { house } from '.representatives.json'
+import { senate } from './senate.js'
+import { house } from './house.js'
 
 var card = document.querySelector('.card');
 card.addEventListener( 'mouseover', function() {
