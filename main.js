@@ -54,4 +54,4 @@ function MakeCardBack(senator) {
   backFace.innerText = senator.last_name;
 
   return backFace;
-}
+} 
