@@ -18,7 +18,7 @@ for (let i = 0; i < senate.length; i++) {
 function MakeSenatorCard(senator) {
   // Create the <div> for the scene card
   const sceneCard = document.createElement('div');
-  sceneCard.classList.add("scene", "scene--card");
+  sceneCard.classList.add("scene");
 
   // Create the <div> for the card
   const card = document.createElement('div');
@@ -43,9 +43,18 @@ function MakeCardFront(senator) {
   // Create the <div> for the front of the card
   const frontFace = document.createElement('div');
   frontFace.classList.add("card__face", "card__face--front");
+
+  const figure = document.createElement('figure');
+
   const photo = document.createElement('img');
   photo.src = 'https://theunitedstates.io/images/congress/225x275/' + senator.id + '.jpg';
-  frontFace.appendChild(photo);
+  figure.appendChild(photo);
+
+  const figcaption = document.createElement('figcaption');
+  figcaption.innerText = senator.first_name + ' ' + senator.last_name;
+  figure.appendChild(figcaption);
+
+  frontFace.appendChild(figure);
 
   return frontFace;
 }
