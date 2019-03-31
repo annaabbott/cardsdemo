@@ -43,7 +43,9 @@ function MakeCardFront(senator) {
   // Create the <div> for the front of the card
   const frontFace = document.createElement('div');
   frontFace.classList.add("card__face", "card__face--front");
-  frontFace.innerText = senator.first_name;
+  const photo = document.createElement('img');
+  photo.src = 'https://theunitedstates.io/images/congress/225x275/' + senator.id + '.jpg';
+  frontFace.appendChild(photo);
 
   return frontFace;
 }
