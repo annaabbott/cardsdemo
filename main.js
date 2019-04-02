@@ -1,12 +1,23 @@
 import { senate } from './senate.js'
 import { house } from './house.js'
 
+function mapFunc(senator) {
+  return {
+    name: `${senator.first_name} ${senator.last_name}`,
+    party: senator.party,
+    state: senator.state,
+    leadership_role: senator.leadership_role ? senator.leadership_role : "none",
+    url: senator.url,
+    photoUrl: 'https://theunitedstates.io/images/congress/225x275/' + senator.id + '.jpg'
+  }
+}
 
+const cards = senate.map(mapFunc);
 
 const cardListDiv = document.getElementById("card-list");
 
-for (let i = 0; i < senate.length; i++) {
-  const item = senate[i];
+for (let i = 0; i < cards.length; i++) {
+  const item = cards[i];
   const card = MakeSenatorCard(item);
   cardListDiv.appendChild(card);
 }
@@ -47,11 +58,11 @@ function MakeCardFront(senator) {
   const figure = document.createElement('figure');
 
   const photo = document.createElement('img');
-  photo.src = 'https://theunitedstates.io/images/congress/225x275/' + senator.id + '.jpg';
+  photo.src = senator.photoUrl;
   figure.appendChild(photo);
 
   const figcaption = document.createElement('figcaption');
-  figcaption.innerText = senator.first_name + ' ' + senator.last_name;
+  figcaption.innerText = senator.name;
   figure.appendChild(figcaption);
 
   frontFace.appendChild(figure);
