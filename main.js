@@ -73,7 +73,38 @@ function MakeCardFront(senator) {
 function MakeCardBack(senator) {
   const backFace = document.createElement('div');
   backFace.classList.add("card__face", "card__face--back");
-  backFace.innerText = senator.last_name;
+
+  backFace.appendChild(makeStat('Name', senator.name));
+  backFace.appendChild(makeStat('Party', senator.party));
+  backFace.appendChild(makeStat('State', senator.state));
+  backFace.appendChild(makeStat('Leadership Role', senator.leadership_role));
+  backFace.appendChild(makeUrlStat(senator.url));
+  
 
   return backFace;
 } 
+
+function makeStat(label, text) {
+  const div = document.createElement('div');
+
+  const strong = document.createElement('strong');
+  strong.innerText = label + ': ';
+  div.appendChild(strong);
+
+  const span = document.createElement('span');
+  span.innerText = text;
+  div.appendChild(span);
+
+  return div;
+}
+
+function makeUrlStat(url) {
+  const strong = document.createElement('strong');
+  strong.innerText = 'Website';
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.appendChild(strong);
+
+  return a;
+}

@@ -34,7 +34,7 @@ body { font-family: sans-serif; }
 }
 
 .card__face--back {
-  background: blue;
+  background: aliceblue;
   transform: rotateY(180deg);
 }
 
