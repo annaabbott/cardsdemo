@@ -8,23 +8,39 @@ function mapFunc(senator) {
     state: senator.state,
     leadership_role: senator.leadership_role ? senator.leadership_role : "none",
     url: senator.url,
-    photoUrl: 'https://theunitedstates.io/images/congress/225x275/' + senator.id + '.jpg'
+    photoUrl: 'https://theunitedstates.io/images/congress/225x275/' + senator.id + '.jpg',
+    selected: false
   }
 }
+const allCards = senate.map(mapFunc);
 
-const cards = senate.map(mapFunc);
+const seed = Math.floor(
+  Math.random() * 100
+);
+const STEP = 67;
 
-const cardListDiv = document.getElementById("card-list");
-
-for (let i = 0; i < cards.length; i++) {
-  const item = cards[i];
-  const card = MakeSenatorCard(item);
-  cardListDiv.appendChild(card);
+let x = seed; 
+for(let i = 0; i < 25; i ++) {
+  allCards[x].selected = true;
+  x = (x + STEP ) % 100;
 }
 
+function filterFunc(senator) {
+  return senator.selected;
+}
 
+const visibleCards = allCards.filter(filterFunc);
+addCards(visibleCards);
 
+function addCards(newCards) {
+  const cardListDiv = document.getElementById("card-list");
 
+  for (let i = 0; i < newCards.length; i++) {
+    const item = newCards[i];
+    const card = MakeSenatorCard(item);
+    cardListDiv.appendChild(card);
+  }
+}
 
 function MakeSenatorCard(senator) {
   // Create the <div> for the scene card
@@ -107,4 +123,19 @@ function makeUrlStat(url) {
   a.appendChild(strong);
 
   return a;
+}
+
+document.getElementById("addButton").onclick = function onAddClick() {
+  const state = prompt("Enter the two-letter abbreviation for your state (AL, MO, etc.)");
+  if(!state) {
+    return;
+  }
+  const newCards = allCards.filter(
+    card => card.state.toLowerCase() === state.toLowerCase()
+  );
+  if (newCards.length < 1) {
+    alert("unable to find any senators from " + state);
+    return;
+  }
+  addCards(newCards);
 }
