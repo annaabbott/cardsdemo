@@ -1,5 +1,5 @@
 import { senate } from './senate.js'
-import { house } from './house.js'
+// import { house } from './house.js'
 
 function mapFunc(senator) {
   return {
@@ -116,7 +116,7 @@ function makeStat(label, text) {
 
 function makeUrlStat(url) {
   const strong = document.createElement('strong');
-  strong.innerText = 'Website';
+  strong.innerText = 'Visit Website';
 
   const a = document.createElement('a');
   a.href = url;

@@ -101,11 +101,22 @@ align-items: center;
 
 /*  "BASEBALL" CARDS */
 
+.senateBall {
+  margin: 0 3%;
+  }
+
+#card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+
 .scene {
   width: 225px;
   height:300px;
   margin: 40px 0;
-  
   perspective: 600px;
 }
 
@@ -137,6 +148,10 @@ align-items: center;
 .card__face--back {
   background: aliceblue;
   transform: rotateY(180deg);
+  border: 1px solid #ccc;
+  line-height: 1.5rem;
+  padding: 1rem;
+  position: relative;
 }
 
 figure {
@@ -145,8 +160,15 @@ figure {
 
 figcaption {
   display: block;
-  width: 100%;
+  width: 80%;
   text-align: center;
+}
+
+.card__face--back a {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+ 
 }
 
 /*FOOTER*/
