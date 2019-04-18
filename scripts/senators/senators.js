@@ -140,6 +140,3 @@ document.getElementById("addButton").onclick = function onAddClick() {
   addCards(newCards);
 }
 
-if(senator.party === "R") {
-  
-}
