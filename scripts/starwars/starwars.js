@@ -46,7 +46,7 @@ function makeInfoSection(title) {
 
     return h3;
 }
-
+//document.getElementById("addButton").onclick = 'makeInfoList(film)'
 function makeInfoList(film) {
     let ul = document.createElement('ul');
 
@@ -56,6 +56,7 @@ function makeInfoList(film) {
 
     return ul;
 }
+
 
 function makeInfoListItem(label, value) {
     const li = document.createElement('li');
