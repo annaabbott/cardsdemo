@@ -1,18 +1,24 @@
 import { senate } from './senate.js'
 // import { house } from './house.js'
 
-function mapFunc(senator) {
-  return {
-    name: `${senator.first_name} ${senator.last_name}`,
-    party: senator.party,
-    state: senator.state,
-    leadership_role: senator.leadership_role ? senator.leadership_role : "none",
-    url: senator.url,
-    photoUrl: 'https://theunitedstates.io/images/congress/225x275/' + senator.id + '.jpg',
-    selected: false
+class Senator{
+  constructor(senator) {
+    this.first_name= senator.first_name;
+    this.last_name= senator.last_name;
+    this.party = senator.party;
+    this.state = senator.state;
+    this.leadership_role = senator.leadership_role ? senator.leadership_role : "none";
+    this.url = senator.url;
+    this.photoUrl = `https://theunitedstates.io/images/congress/225x275/${senator.id}.jpg`;
+    this.selected = false;
+  }
+  
+  fullName() {
+    return `${this.first_name} ${this.last_name}`;
   }
 }
-const allCards = senate.map(mapFunc);
+
+const allCards = senate.map(senator => new Senator(senator));
 
 const seed = Math.floor(
   Math.random() * 100
@@ -25,11 +31,7 @@ for(let i = 0; i < 25; i ++) {
   x = (x + STEP ) % 100;
 }
 
-function filterFunc(senator) {
-  return senator.selected;
-}
-
-const visibleCards = allCards.filter(filterFunc);
+const visibleCards = allCards.filter(card => card.selected);
 addCards(visibleCards);
 
 function addCards(newCards) {
@@ -78,7 +80,7 @@ function MakeCardFront(senator) {
   figure.appendChild(photo);
 
   const figcaption = document.createElement('figcaption');
-  figcaption.innerText = senator.name;
+  figcaption.innerText = senator.fullName();
   figure.appendChild(figcaption);
 
   frontFace.appendChild(figure);
@@ -90,7 +92,7 @@ function MakeCardBack(senator) {
   const backFace = document.createElement('div');
   backFace.classList.add("card__face", "card__face--back");
 
-  backFace.appendChild(makeStat('Name', senator.name));
+  backFace.appendChild(makeStat('Name', senator.fullName()));
   backFace.appendChild(makeStat('Party', senator.party));
   backFace.appendChild(makeStat('State', senator.state));
   backFace.appendChild(makeStat('Leadership Role', senator.leadership_role));
