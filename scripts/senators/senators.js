@@ -1,10 +1,10 @@
 import { senate } from './senate.js'
 // import { house } from './house.js'
 
-class Senator{
+class Senator {
   constructor(senator) {
-    this.first_name= senator.first_name;
-    this.last_name= senator.last_name;
+    this.first_name = senator.first_name;
+    this.last_name = senator.last_name;
     this.party = senator.party;
     this.state = senator.state;
     this.leadership_role = senator.leadership_role ? senator.leadership_role : "none";
@@ -12,7 +12,7 @@ class Senator{
     this.photoUrl = `https://theunitedstates.io/images/congress/225x275/${senator.id}.jpg`;
     this.selected = false;
   }
-  
+
   fullName() {
     return `${this.first_name} ${this.last_name}`;
   }
@@ -25,10 +25,10 @@ const seed = Math.floor(
 );
 const STEP = 67;
 
-let x = seed; 
-for(let i = 0; i < 25; i ++) {
+let x = seed;
+for (let i = 0; i < 25; i++) {
   allCards[x].selected = true;
-  x = (x + STEP ) % 100;
+  x = (x + STEP) % 100;
 }
 
 const visibleCards = allCards.filter(card => card.selected);
@@ -52,7 +52,7 @@ function MakeSenatorCard(senator) {
   // Create the <div> for the card
   const card = document.createElement('div');
   card.classList.add("card");
-  card.addEventListener( 'click', function() {
+  card.addEventListener('click', function () {
     card.classList.toggle('is-flipped');
   });
   sceneCard.appendChild(card);
@@ -97,10 +97,10 @@ function MakeCardBack(senator) {
   backFace.appendChild(makeStat('State', senator.state));
   backFace.appendChild(makeStat('Leadership Role', senator.leadership_role));
   backFace.appendChild(makeUrlStat(senator.url));
-  
+
 
   return backFace;
-} 
+}
 
 function makeStat(label, text) {
   const div = document.createElement('div');
@@ -129,7 +129,7 @@ function makeUrlStat(url) {
 
 document.getElementById("addButton").onclick = function onAddClick() {
   const state = prompt("Enter the two-letter abbreviation for your state (AL, MO, etc.)");
-  if(!state) {
+  if (!state) {
     return;
   }
   const newCards = allCards.filter(
