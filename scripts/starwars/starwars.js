@@ -53,10 +53,14 @@ function makeInfoList(film) {
     ul.appendChild(makeInfoListItem('Director', film.director));
     ul.appendChild(makeInfoListItem('Producer', film.producer));
     ul.appendChild(makeInfoListItem('Release Date', film.release_date));
+    ul.appendChild(makeInfoListItem('box_office', numberWithCommas(film.box_office)));
 
     return ul;
 }
 
+function numberWithCommas(x) {
+    return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function makeInfoListItem(label, value) {
     const li = document.createElement('li');

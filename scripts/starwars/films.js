@@ -6,6 +6,7 @@ export const films = [
         "director": "George Lucas",
         "producer": "Gary Kurtz, Rick McCallum",
         "release_date": "1977-05-25",
+        "box_office": 775400000,
         "characters": [
             "https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/2/",
@@ -65,6 +66,7 @@ export const films = [
         "director": "George Lucas",
         "producer": "Rick McCallum",
         "release_date": "2002-05-16",
+        "box_office": 649400000,
         "characters": [
             "https://swapi.co/api/people/2/",
             "https://swapi.co/api/people/3/",
@@ -165,6 +167,7 @@ export const films = [
         "director": "George Lucas",
         "producer": "Rick McCallum",
         "release_date": "1999-05-19",
+        "box_office": 1027000000,
         "characters": [
             "https://swapi.co/api/people/2/",
             "https://swapi.co/api/people/3/",
@@ -255,6 +258,7 @@ export const films = [
         "director": "George Lucas",
         "producer": "Rick McCallum",
         "release_date": "2005-05-19",
+        "box_office": 848800000,
         "characters": [
             "https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/2/",
@@ -368,6 +372,7 @@ export const films = [
         "director": "Richard Marquand",
         "producer": "Howard G. Kazanjian, George Lucas, Rick McCallum",
         "release_date": "1983-05-25",
+        "box_office": 475100000,
         "characters": [
             "https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/2/",
@@ -443,6 +448,7 @@ export const films = [
         "director": "Irvin Kershner",
         "producer": "Gary Kurtz, Rick McCallum",
         "release_date": "1980-05-17",
+        "box_office": 538400000,
         "characters": [
             "https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/2/",
@@ -504,6 +510,7 @@ export const films = [
         "director": "J. J. Abrams",
         "producer": "Kathleen Kennedy, J. J. Abrams, Bryan Burk",
         "release_date": "2015-12-11",
+        "box_office": 2068000000,
         "characters": [
             "https://swapi.co/api/people/1/",
             "https://swapi.co/api/people/3/",
