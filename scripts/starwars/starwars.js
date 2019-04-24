@@ -22,6 +22,7 @@ function makeFilmInfo(film) {
 
     resultDiv.appendChild(makeTitle(film));
 
+    // Create button
     const button = document.createElement('button');
     button.type = 'button';
     button.innerText = 'More Info';
@@ -38,6 +39,7 @@ function makeFilmInfo(film) {
     infoDiv.appendChild(makeCharacterList(film));
     resultDiv.appendChild(infoDiv);
     
+    // Attach 'infoDiv' to button
     button.onclick = function() {
         infoDiv.classList.toggle('hidden');
     }
@@ -104,7 +106,7 @@ function makeOpeningCrawl(film) {
 function makeCharacterList(film) {
     const ul = document.createElement('ul');
 
-    for (let i=0; i < film.characters.length && i < 12; i++) {
+    for (let i=0; i < film.characters.length && i < 10; i++) {
         ul.appendChild(makeCharacterListItem(film.characters[i]));
     }
 

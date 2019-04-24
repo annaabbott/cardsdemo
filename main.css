@@ -50,6 +50,8 @@ nav ul li {
 
 /* main */
 
+
+
 .intro {
   top: 0;
   background-image: url(images/Visual\ Studio\ Code.png);
@@ -62,6 +64,10 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+}
+
+#projects {
+     margin: 0 3%;
 }
 
 .work {
@@ -111,9 +117,22 @@ align-items: center;
   display: none;
 }
   
+#films {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+justify-content: center;
+align-items: flex-start;
+}
+
   .film-info h3 {
       color: #008080;
-  }      
+  }     
+  
+  .contact {
+    margin: 0 3%;
+  }
+
 .contact-details {
       display: inline-block;
       font-weight: bold;
