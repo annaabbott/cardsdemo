@@ -52,9 +52,12 @@ nav ul li {
 
 .intro {
   top: 0;
-  background: #e0ebe8;
+  background-image: url(images/Visual\ Studio\ Code.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
   height: 100vh;
-  color: #008080;
+  color: #e0ebe8;
 display: flex;
 flex-direction: column;
 justify-content: center;
