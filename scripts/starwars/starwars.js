@@ -15,21 +15,41 @@ function makeFilmInfo(film) {
     // Create a <div> to hold info for a single film.
     const resultDiv = document.createElement('div');
 
-    // Set the id for the <div> to be "film-1", etc.
-    resultDiv.id = "film-" + film.episode_id;
-
     // Add the "film-info" class to this <div>
     resultDiv.classList.add("film-info");
 
+    resultDiv.appendChild(makePoster(film))
+
     resultDiv.appendChild(makeTitle(film));
-    resultDiv.appendChild(makeInfoSection("Info:"));
-    resultDiv.appendChild(makeInfoList(film));
-    resultDiv.appendChild(makeInfoSection('Opening Crawl:'));
-    resultDiv.appendChild(makeOpeningCrawl(film));
-    resultDiv.appendChild(makeInfoSection('Main Characters:'));
-    resultDiv.appendChild(makeCharacterList(film));
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.innerText = 'More Info';
+    resultDiv.appendChild(button);
+
+    const infoDiv = document.createElement('div');
+    infoDiv.id = "film-" + film.episode_id;
+    infoDiv.classList.add('hidden');
+    infoDiv.appendChild(makeInfoSection("Info:"));
+    infoDiv.appendChild(makeInfoList(film));
+    infoDiv.appendChild(makeInfoSection('Opening Crawl:'));
+    infoDiv.appendChild(makeOpeningCrawl(film));
+    infoDiv.appendChild(makeInfoSection('Main Characters:'));
+    infoDiv.appendChild(makeCharacterList(film));
+    resultDiv.appendChild(infoDiv);
+    
+    button.onclick = function() {
+        infoDiv.classList.toggle('hidden');
+    }
 
     return resultDiv;
+}
+
+function makePoster(film) {
+    const img = document.createElement('img');
+    img.src = `./images/poster-episode-${film.episode_id}.jpg`;
+
+    return img;
 }
 
 function makeTitle(film) {
@@ -102,38 +122,3 @@ function makeCharacterListItem(url) {
 
     return li;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-let html = "";
-for (let film of films) {
-    html += `<div class="film-info">`;
-    html += `  <h2>Episode ${film.episode_id}: ${film.title}</h2>`;
-    html += `  <button id="film-${film.episode_id}">More Info</button>`;
-    html += makeFilmInfo(film);
-    html += `</div>`;
-}
-
-document.getElementById("films").innerHTML = html;
-
-function makeFilmInfo(film) {
-    let html = "";
-    html += `<div id="info-${film.episode_id}">`;
-    html += film.opening_crawl;
-    html += `</div>`;
-
-    return html;
-}
-*/
-
-

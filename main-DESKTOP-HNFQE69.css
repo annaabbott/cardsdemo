@@ -52,12 +52,9 @@ nav ul li {
 
 .intro {
   top: 0;
-  background-image: url(images/Visual\ Studio\ Code.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0 auto;
+  background: #e0ebe8;
   height: 100vh;
-  color: #e0ebe8;
+  color: #008080;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -107,13 +104,12 @@ align-items: center;
       display: inline-block;
     }       
 
-.hidden {
-  display: none;
-}
+
   
   .film-info h3 {
       color: #008080;
   }      
+  
 .contact-details {
       display: inline-block;
       font-weight: bold;
@@ -130,6 +126,7 @@ align-items: center;
       text-align: center;
     }
 
+    
 /*  "BASEBALL" CARDS */
 
 .senateBall {
