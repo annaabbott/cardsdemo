@@ -11,6 +11,8 @@ for (let i = 0; i < films.length; i++) {
     filmsDiv.appendChild(newDiv);
 }
 
+setStats(films);
+
 function makeFilmInfo(film) {
     // Create a <div> to hold info for a single film.
     const resultDiv = document.createElement('div');
@@ -80,8 +82,9 @@ function makeInfoList(film) {
     return ul;
 }
 
-function numberWithCommas(x) {
-    return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function numberWithCommas(x, isMoney = true) {
+    const symbol = isMoney ? '$' : '';
+    return symbol + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function makeInfoListItem(label, value) {
@@ -123,4 +126,42 @@ function makeCharacterListItem(url) {
     li.innerText = person.name;
 
     return li;
+}
+
+function setStats(films) {
+    const gross = films.reduce(
+        (acc,curr) => acc + curr.box_office,
+        0
+    );
+
+    document.getElementById('total-gross').innerText = numberWithCommas(gross);
+
+    const planets = films.reduce(
+        (acc,curr) => acc + curr.planets.length,
+        0
+    );
+
+    document.getElementById('totalPlanets').innerText = numberWithCommas(planets, false);
+
+    const starships = films.reduce(
+        (acc,curr) => acc + curr.starships.length,
+        0
+    );
+
+    document.getElementById('totalStarships').innerText = numberWithCommas(starships, false);
+
+    const vehicles = films.reduce(
+        (acc,curr) => acc + curr.vehicles.length,
+        0
+    );
+
+    document.getElementById('totalVehicles').innerText = numberWithCommas(vehicles, false);
+
+    const species = films.reduce(
+        (acc,curr) => acc + curr.species.length,
+        0
+    );
+
+    document.getElementById('totalSpecies').innerText = numberWithCommas(species, false);
+
 }
