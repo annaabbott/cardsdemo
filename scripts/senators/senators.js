@@ -73,6 +73,12 @@ function MakeCardFront(senator) {
   const frontFace = document.createElement('div');
   frontFace.classList.add("card__face", "card__face--front");
 
+  if (senator.party === 'R') {
+    frontFace.classList.add('republican-background');
+  } else if (senator.party === 'D') {
+    frontFace.classList.add('democrat-background');
+  }
+
   const figure = document.createElement('figure');
 
   const photo = document.createElement('img');
@@ -96,6 +102,12 @@ function MakeCardBack(senator) {
   backFace.appendChild(makeStat('Party', senator.party));
   backFace.appendChild(makeStat('State', senator.state));
   backFace.appendChild(makeStat('Leadership Role', senator.leadership_role));
+  const img = document.createElement('img');
+  img.src = `./images/senateSeal.png`;
+  const imgDiv = document.createElement('div');
+  imgDiv.classList.add('senateSeal');
+  imgDiv.appendChild(img);
+  backFace.appendChild(imgDiv);
   backFace.appendChild(makeUrlStat(senator.url));
 
 

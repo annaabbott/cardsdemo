@@ -108,7 +108,7 @@ align-items: center;
     .film-info {
       border: none;
       border-width: 1;
-      padding: 15px;
+      padding: 1+5px;
       width: 33%;
       display: inline-block;
     }       
@@ -197,7 +197,7 @@ align-items: flex-start;
 
 .card__face--front {
   border: 1px solid #CCC;
-
+background-color: black;
 }
 
 .card__face--back {
@@ -209,6 +209,14 @@ align-items: flex-start;
   position: relative;
 }
 
+.republican-background {
+  background-color: #ffa1a1;
+}
+
+.democrat-background {
+  background-color: #9494ff;
+}
+
 figure {
   margin: 0;
 }
@@ -217,6 +225,10 @@ figcaption {
   display: block;
   width: 80%;
   text-align: center;
+}
+
+.senateSeal {
+  margin: 23px 23%;
 }
 
 .card__face--back a {
