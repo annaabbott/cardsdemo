@@ -81,25 +81,25 @@ align-items: center;
   
 /*star Wars */
 
-
-
 .starWars {
   background-color: #e0ebe8;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.starWars .starWarsBanner {
   width: 100%;
+  margin: 0 auto;
+  
 }
 
 .starWars .starWarsBanner img {
   width: 100%;
+  
 }
 
-.starWars h1 {
+.starWars .starWarsBanner {
+  background-image: url("images/hubblepic.jpg");
+  background-repeat: no repeat;
   text-align: center;
   padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: white;
 }
 
 .starWars p#subheading {
@@ -121,14 +121,38 @@ align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-justify-content: center;
+justify-content: space-evenly;
 align-items: flex-start;
+margin: 2rem 25%;
 }
 
   .film-info h3 {
       color: #008080;
-  }     
+  }   
   
+.film-info img {
+  padding: 20px;
+  width: 100%;
+}
+
+.film-info button {
+border: 1px solid black;
+margin: 0 33.33%;
+}
+
+img .launchBay {
+  padding: 20 px 0;
+}
+
+ .totals {
+    text-align: center;
+    padding-top: 20px;
+  }
+  
+.totals ul {
+  list-style: none;
+}
+
   .contact {
     margin: 0 3%;
   }
@@ -196,8 +220,7 @@ align-items: flex-start;
 }
 
 .card__face--front {
-  border: 1px solid #CCC;
-background-color: black;
+  /* border: 1px solid #CCC; */
 }
 
 .card__face--back {
